@@ -20,7 +20,7 @@ def initialize(pop, l_size, h_size, fitness_function, crossover, mutation):
 def _get_fitnesses():
     fitness_val = dict()
     net_fitness = 0
-    for v in population:
+    for v in candidates:
         fitness_val[v] = fitness(v)
         net_fitness += fitness_val[v]
     return fitness_val, net_fitness
@@ -33,7 +33,7 @@ def next_generation():
 
     def pick_parent():
         val = uniform(0, net_fitness)
-        for v in population:
+        for v in candidates:
             val -= fitness_val[v]
             if val <= 0:
                 return v
@@ -60,11 +60,11 @@ def next_generation():
         new_pop.append(org1)
         new_pop.append(org2)
 
-    population = new_pop
+    candidates = new_pop
 
 
 def get_fittest(n):
     fitness_val, _ = _get_fitnesses()
-    rev_sorted_pop = sorted(population, key=lambda p: fitness_val[p])
+    rev_sorted_pop = sorted(candidates, key=lambda p: fitness_val[p])
     sorted_pop = rev_sorted_pop[::-1]
     return sorted_pop[:n]
