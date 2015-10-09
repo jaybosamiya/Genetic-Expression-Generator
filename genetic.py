@@ -27,6 +27,7 @@ def _get_fitnesses():
 
 
 def next_generation():
+    global candidates
     from random import uniform, randint
     fitness_val, net_fitness = _get_fitnesses()
     new_pop = []
@@ -39,7 +40,7 @@ def next_generation():
                 return v
 
     def do_crossover(p1, p2):
-        c1, c2 = randint(0, len(m)), randint(0, len(n))
+        c1, c2 = randint(0, len(p1)), randint(0, len(p2))
         return p1[:c1] + p2[c2 + 1:], p2[:c2] + p1[c1 + 1:]
 
     def mutate(o):
