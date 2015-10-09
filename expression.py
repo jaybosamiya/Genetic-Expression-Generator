@@ -1,6 +1,8 @@
 #! /usr/bin/env python
 
-_allowed_symbol_list = '0123456789+-*/'
+_digits = '0123456789'
+_operators = '+-*/'
+_allowed_symbol_list = _digits + _operators
 
 
 def _conv_to_symbol(bin_string):
@@ -9,16 +11,34 @@ def _conv_to_symbol(bin_string):
     if val < 10:
         return str(val)
     elif val < 14:
-        return '+-*/'[val - 10]
+        return _operators[val - 10]
     else:
         return ''
+
+
+def _clean_up(expression):
+    ret = []
+    number = False
+    for e in expression:
+        if e in _digits:
+            number = True
+            ret.append(e)
+        elif e in _operators:
+            if number == False:
+                continue
+            else:
+                number = False
+                ret.append(e)
+    if number == False:
+        ret = ret[:-1]
+    return ''.join(ret)
 
 
 def conv_to_expression(bin_string):
     num_of_symbols = len(bin_string) / 4
     pieces = [bin_string[i * 4:i * 4 + 4] for i in range(num_of_symbols)]
-    # TODO : Make sure that it is a valid expression
-    return ''.join(_conv_to_symbol(p) for p in pieces)
+    expression = _clean_up(''.join(_conv_to_symbol(p) for p in pieces))
+    return expression
 
 
 def _get_4_bit_repr(val):
@@ -37,6 +57,13 @@ def conv_to_bin_string(expression):
 
 
 if __name__ == '__main__':
+    assert(_clean_up('123+/2') == '123+2')
+    assert(_clean_up('123') == '123')
+    assert(_clean_up('1') == '1')
+    assert(_clean_up('123+2') == '123+2')
+    assert(_clean_up('/123+2') == '123+2')
+    assert(_clean_up('123+2/') == '123+2')
+
     assert(_conv_to_symbol('0000') == '0')
     assert(_conv_to_symbol('0010') == '2')
     assert(_conv_to_symbol('1010') == '+')
