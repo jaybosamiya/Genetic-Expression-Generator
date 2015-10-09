@@ -56,6 +56,13 @@ def conv_to_bin_string(expression):
     return ''.join(_conv_symbol_to_bin(e) for e in expression)
 
 
+def eval_expr(expression):
+    return eval(_clean_up(expression))
+
+
+def eval_bin_string(bin_string):
+    return eval_expr(conv_to_expression(bin_string))
+
 if __name__ == '__main__':
     assert(_clean_up('123+/2') == '123+2')
     assert(_clean_up('123') == '123')
@@ -75,5 +82,8 @@ if __name__ == '__main__':
     assert(_conv_symbol_to_bin('+') == '1010')
     assert(_conv_symbol_to_bin('/') == '1101')
     assert(conv_to_bin_string('11*12') == '00010001110000010010')
+
+    assert(eval_expr('2+3') == 5)
+    assert(eval_bin_string('00010001110000010010') == 132)
 
     print 'All tests passed'
