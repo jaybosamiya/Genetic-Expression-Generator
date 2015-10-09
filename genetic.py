@@ -28,7 +28,7 @@ def _get_fitnesses():
 
 def next_generation():
     from random import uniform, randint
-    fitness_val, net_fitness = get_fitnesses()
+    fitness_val, net_fitness = _get_fitnesses()
     new_pop = []
 
     def pick_parent():
