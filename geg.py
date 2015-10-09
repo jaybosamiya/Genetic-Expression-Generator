@@ -7,7 +7,7 @@ def fitness_function(bin_string):
     if val == required_int:
         ret = float("inf")
     else:
-        ret = 1 / abs(float(val) - float(required_int))
+        ret = 1 / abs(float(val - required_int))
     return ret
 
 if __name__ == '__main__':
