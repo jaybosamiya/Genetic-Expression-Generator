@@ -8,10 +8,8 @@ _allowed_symbol_list = _digits + _operators
 def _conv_to_symbol(bin_string):
     assert(len(bin_string) == 4)
     val = int(bin_string, 2)
-    if val < 10:
-        return str(val)
-    elif val < 14:
-        return _operators[val - 10]
+    if val < len(_allowed_symbol_list):
+        return _allowed_symbol_list[val]
     else:
         return ''
 
