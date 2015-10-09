@@ -5,7 +5,7 @@ GEG (Genetic Expression Generator) is a tool used to generate expressions that e
 
 One of the most useful cases for such a tool is for obfuscation routines. However, this tool was mainly created in order to learn concepts in Genetic Algorithms.
 
-A huge thanks to [ai-junkie](http://www.ai-junkie.com/ga/intro/gat1.html) for writing an amazing tutorial on genetic algorithms, in general. :)
+A huge thanks to [ai-junkie](http://www.ai-junkie.com/ga/intro/gat1.html) for writing an amazing tutorial on genetic algorithms, and to [yati-sagade](https://github.com/yati-sagade/exprolution/) for introducing me to the ai-junkie tutorial. :)
 
 Usage
 -----
