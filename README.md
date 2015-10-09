@@ -12,6 +12,26 @@ Usage
 
 Run the code using `python geg.py`
 
+Example
+-------
+
+    Input integer: 244
+    Most fittest: 122 80 78 67 46
+    Most fittest: 349 122 122 122 388
+    Most fittest: 86 76 76 53 52
+    Most fittest: 302 76 70 52 52
+    Most fittest: 191 302 348 110 52
+    Most fittest: 287 191 191 302 302
+    Most fittest: 260 191 191 301 302
+    Most fittest: 260 260 260 273 285
+    Most fittest: 252 260 260 260 260
+    Most fittest: 252 252 252 252 252
+    Most fittest: 252 252 252 252 252
+    Most fittest: 252 252 252 252 252
+    Most fittest: 243 251 252 252 252
+    Most fittest: 244 243 243 243 243
+    Found expression: 36*7-8
+
 License
 -------
 
