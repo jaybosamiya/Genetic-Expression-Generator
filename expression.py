@@ -57,8 +57,13 @@ def conv_to_bin_string(expression):
 
 
 def eval_expr(expression):
-    return eval(_clean_up(expression))
-
+    try:
+        ret = eval(_clean_up(expression))
+    except SyntaxError:
+        ret = float('inf')
+    except ZeroDivisionError:
+        ret = float('inf')
+    return ret
 
 def eval_bin_string(bin_string):
     return eval_expr(conv_to_expression(bin_string))
