@@ -18,6 +18,7 @@ if __name__ == '__main__':
     genetic.initialize(50, 4, 100, fitness_function, 0.7, 0.001)
     while True:
         fittest = genetic.get_fittest(5)
+        print "Most fittest:",
         for v in fittest:
             print eval_bin_string(v),
         print
